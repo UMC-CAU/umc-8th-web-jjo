@@ -1,8 +1,12 @@
+import { Outlet } from "react-router-dom"
+//import Navbar from "../components/navbar";
 //home.tsx
 const HomePage = () => {
     return (
-        <div>Home Page</div>
-    )       
-}
+        <div>
+            <Outlet/>
+        </div>
+    );    
+};
 
 export default HomePage

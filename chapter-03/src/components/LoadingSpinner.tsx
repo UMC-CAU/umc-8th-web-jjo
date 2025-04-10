@@ -22,7 +22,7 @@ export const LoadingSpinner = () => {
             </svg>
         </div>*/
         <div
-            className="flex justify-center items-center h-screen 
+            className="flex justify-center items-center
             size-12 animate-spin rounded-full border-6 
             border-t-transparent border-blue-500"
             role='status'

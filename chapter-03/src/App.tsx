@@ -3,33 +3,33 @@ import './App.css'
 
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
-import HomePage from './pages/home';
-import MoviePage from './pages/moviePage';
+import MoviePage from './pages/MoviePage';
 import NotFound from './pages/not-found';
 import RootLayout from './layout/root-layout';
+import MovieDetailPage from './pages/MovieDetailPage.tsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <RootLayout/>,
         errorElement: <NotFound/>,
-
         children: [
             {
-                index: true,
-                element: <HomePage/>
-            },
-            {
-                path: 'movies',
+                path: 'movies/:category',
                 element: <MoviePage/>,
             },
             {
-                path: 'movies/:movieId', // :movieId는 동적 라우팅을 위한 파라미터
-                element: <MoviePage/>
-            }
+                //path: 'movies?:category/:movieId', // react v6에서는 지원이 안된다 어쩌고
+                path: 'movies/detail/:movieId',
+                element: <MovieDetailPage/>
+            },
+
+
         ]
     },
-])
+]);
+
+
 
 function App() {
     return <RouterProvider router={router}/>
