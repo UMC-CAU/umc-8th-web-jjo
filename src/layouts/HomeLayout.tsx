@@ -12,12 +12,12 @@ const HomeLayout = () => {
 
         <div className="space-x-4">
           <Link to="/login">
-            <button className="text-pink-500 border border-white px-4 py-2 rounded-xl hover:bg-gray-800 transition">
+            <button className="text-pink-500 border border-white px-4 py-2 rounded-xl hover:bg-gray-800 transition cursor-pointer">
               Login
             </button>
           </Link>
           <Link to="/signup">
-            <button className="bg-pink-500 text-white px-4 py-2 rounded-xl hover:bg-pink-900 transition">
+            <button className="bg-pink-500 text-white px-4 py-2 rounded-xl hover:bg-pink-900 transition cursor-pointer">
               Sign Up
             </button>
           </Link>
