@@ -2,6 +2,7 @@ import useForm from "../hooks/useForm";
 import { UserSigninInformation, validateSignin } from "../utils/validate";
 import "../index.css";
 import { Link } from "react-router-dom";
+import { postSignin } from "../apis/auth";
 
 const LoginPage = () => {
   const { values, errors, touched, getInputProps } = useForm<UserSigninInformation>({
@@ -14,6 +15,12 @@ const LoginPage = () => {
 
   const handleSubmit = async () => {
     console.log(values);
+    try{
+    const response = await postSignin(values)
+    }catch (error) {
+      alert(error?.message);
+    }
+    console.log(response);
   };
 
   const isDisabled: boolean =
