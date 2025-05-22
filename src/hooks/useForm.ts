@@ -6,7 +6,7 @@ interface UseFormProps<T> {
     validate: (values: T) => Record<keyof T, string>;
 }
 
-function useForm<T>({ initialValue, validate }: UseFormProps<T>){
+function useForm<T>({ initialValue, validate }: UseFormProps<T>) {
     const [values, setValues] = useState(initialValue);
     const [touched, setTouched] = useState<Record<string, boolean>>({});
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -23,35 +23,28 @@ function useForm<T>({ initialValue, validate }: UseFormProps<T>){
         setTouched({
             ...touched,
             [name]: true,
-        })
-    }
+        });
+    };
 
     //이메일 인풋, 패스워드 인풋, 속성들 가져오기
     const getInputProps = (name: keyof T) => {
         const value: T[keyof T] = values[name];
 
-        const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
-            handleChange(name, e.target.value);
+        const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => handleChange(name, e.target.value);
 
         const onBlur = () => handleBlur(name);
 
-        return {value, onChange, onBlur};
-        };
-
+        return { value, onChange, onBlur };
+    };
 
     //values 변경될때마다 에러 검증 로직
     // {email: ""}
-    useEffect( ()=>{
+    useEffect(() => {
         const newErrors = validate(values);
         setErrors(newErrors); //오류메시지지
     }, [validate, values]);
 
-    return {values, errors, touched, getInputProps};
+    return { values, errors, touched, getInputProps };
 }
 
-
 export default useForm;
-
-
-
-

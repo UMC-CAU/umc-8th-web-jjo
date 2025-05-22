@@ -2,15 +2,13 @@ import { CommonResponse } from "./common";
 
 //회원가입
 
-
 export type RequestUser = {
     email: string;
     password: string;
     name: string;
     bio?: string;
     avatar?: string;
-    };
-
+};
 
 export type ResponseSignupDto = CommonResponse<{
     id: number;
@@ -24,7 +22,7 @@ export type ResponseSignupDto = CommonResponse<{
 
 export type RequestSignupDto = RequestUser;
 
-//로그인인
+//로그인
 export type RequestSigninDto = {
     email: string;
     password: string;
