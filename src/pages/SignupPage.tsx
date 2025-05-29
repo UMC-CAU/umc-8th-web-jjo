@@ -48,9 +48,9 @@ const SignupPage = () => {
         console.log({ email, name, password }); //비밀번호 확인을 제외한 나머지 데이터들
         console.log(errors); //에러들
 
-        const respeonse = await postSignup({ email, name, password }); //rest를 postSignup에 넣어줌
+        const response = await postSignup({ email, name, password }); //rest를 postSignup에 넣어줌
 
-        console.log(respeonse); //응답값
+        console.log(response); //응답값
     };
 
     return (
@@ -100,7 +100,7 @@ const SignupPage = () => {
                     placeholder="이름"
                 />
 
-                {/* 로그인 버튼 */}
+                {/* 회원가입입 버튼 */}
                 <button
                     disabled={isSubmitting}
                     type="button"
